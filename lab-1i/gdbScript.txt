@@ -1,0 +1,16 @@
+target remote:1234
+set logging file gdbV2.txt
+SET $i=1
+b 14
+b 20
+c
+c
+WHILE($i<48)
+	set logging on
+	p total_t
+	set logging off
+	j fibseq.c: 14
+	SET $i=$i+1
+	SET VAR number = $i
+	c
+end
